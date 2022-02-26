@@ -48,3 +48,29 @@ const user1 = {
 };
 ;
 const add = (x, y) => x + y;
+// Classes
+class Person {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+    register() {
+        return `${this.name}`;
+    }
+}
+const mike = new Person(23, 'Michael Jordan');
+const kobe = new Person(34, 'Kobe Bryant');
+// Subclasses  
+class Employee extends Person {
+    constructor(id, name, position) {
+        super(id, name);
+        this.position = position;
+    }
+}
+const emp = new Employee(3, 'Shawn', 'Developer');
+// Generics
+function getArray(items) {
+    return new Array().concat(items);
+}
+let numArr = getArray([1, 32, 324, 536]);
+let strArr = getArray(['mike', 'brad']);

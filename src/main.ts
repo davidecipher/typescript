@@ -73,3 +73,49 @@ interface MathFunc {
 };
 
 const add: MathFunc = (x: number, y: number): number => x + y;
+
+interface PersonInterface {
+   id: number,
+   name: string
+   register(): string
+}
+
+// Classes
+class Person implements PersonInterface{
+   id: number;
+   name: string;
+
+   constructor(id: number, name: string) {
+      this.id = id;
+      this.name = name;
+   }
+
+   register() {
+      return `${this.name}`;
+   }
+}
+
+const mike = new Person(23, 'Michael Jordan');
+const kobe = new Person(34, 'Kobe Bryant');
+
+// Subclasses  
+class Employee extends Person {
+   position: string;
+
+   constructor(id: number, name: string, position: string) {
+      super(id, name)
+      this.position = position;
+   }
+
+}
+
+const emp = new Employee(3, 'Shawn', 'Developer');
+
+// Generics
+function getArray<T>(items: T[]): T[] {
+   return new Array().concat(items);
+}
+
+let numArr = getArray<number>([1, 32, 324, 536]);
+let strArr = getArray<string>(['mike', 'brad'])
+
